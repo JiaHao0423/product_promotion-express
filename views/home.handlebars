@@ -1,0 +1,195 @@
+<div class="wrapper">
+        <!-- star header -->
+        <header class="header" id="header">
+            <div class="header-navbar">
+                <div class="header__container container">
+                    <a href="#header" class="header__logo"></a>
+                    <ul id="popup-menu" class="header__commodity-column">
+                        <li class="header__item">
+                            <a href="#graphicscard" class="header__link">顯示卡</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#harddrive" class="header__link">硬碟</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#keyboard&mouse" class="header__link">鍵盤/滑鼠</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#memorycard" class="header__link">記憶卡</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#screen" class="header__link">螢幕</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#computer" class="header__link">主機</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#shopping" class="header__link">購物車</a>
+                        </li>
+                        <a href="" class="header__close-btn">
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </ul>
+                    <a href="#popup-menu" class="menu__toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        
+        <!-- Star section1 -->
+        <section class="jumbotron">
+            <img src="images/jumbotron.jpg" alt="" class="jumbotron__img">
+        </section>
+        <!-- End section1 -->
+
+        <!-- Star section2 -->
+        <section class="reciprocal">
+            <div class="reciprocal-container container">
+                <img src="images/alarm-clock.png" alt="" class="reciprocal__img">
+                <p class="reciprocal__today">每日特賣</p>
+                <p>倒數</p>
+                <div class="reciprocal__time">
+                    <span class="hours">08</span>
+                    <p>:</p>
+                    <span class="minutes">01</span>
+                    <p>:</p>
+                    <span class="seconds">27</span>
+                </div>
+            </div>
+        </section>
+        <!-- End section2 -->
+
+        <!-- Star section3 -->
+        <!-- Graphics card -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="graphicscard">顯示卡</h2>
+            <div class="commodity-container container" id="graphicscardlist">
+                
+            </div>
+        </section>
+        <!-- Hard drive -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="harddrive">硬碟</h2>
+            <div class="commodity-container container" id="harddrivelist">
+                
+            </div>
+        </section>
+        <!-- Keyboard&Mouse -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="keyboard&mouse">鍵盤/滑鼠</h2>
+            <div class="commodity-container container" id="keyboard_mouselist">
+                
+            </div>
+        </section>
+        <!-- Memory card -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="memorycard">記憶卡</h2>
+            <div class="commodity-container container" id="memorycardlist">
+                
+            </div>
+        </section>
+        <!-- Screen -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="screen">螢幕</h2>
+            <div class="commodity-container container" id="screenlist">
+                
+            </div>
+        </section>
+        <!-- Computer -->
+        <section class="commodity">
+            <h2 class="commodity_title" id="computer">主機</h2>
+            <div class="commodity-container container" id="computerlist">
+                
+            </div>
+        </section>
+        <!-- End section3 -->
+
+        <!-- Star section4 --> 
+        <div id="shopping"></div>
+        <section class="container shopping">
+            <div class="shopping-cart">
+                <ul class="cart-title">
+                    <li class="cart-title__img">商品</li>
+                    <li class="cart-title__commodityname">單價</li>
+                    <li class="cart-title__price">數量</li>
+                    <li class="cart-title__quantity">總計</li>
+                    <li class="cart-title__item">操作</li>
+                </ul>
+                <ul class="shopping-list">
+                </ul>
+            </div>
+        </section>
+        <!-- End section4 -->
+
+        <!-- Star section5 -->
+        <section class="material container">
+            <form action="#!" class="material-form">
+                <h1 class="form-title">訂購資訊</h3>
+                <div class="form-row">
+                    <lable class="material__title">收件人姓名</lable>
+                    <input type="text" class="material__name material__input--left">
+                </div>
+                <div class="form-row">
+                    <lable class="material__title">收件地址</lable>
+                    <input type="text" class="material__address material__input--left">
+                </div>
+                <div class="form-row">   
+                    <lable class="material__title">收件人電話</lable>
+                    <input type="tel" class="material__number material__input--left">
+                </div>
+                <div class="form-row form-pay">
+                    <lable class="material__title">付款方式</lable>
+                    <div class="material__input--left">
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="分期付款" checked>分期付款</lable>
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="轉帳">轉帳</lable>
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="貨到付款">貨到付款</lable>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <lable class="material__title">發票類別</lable>
+                    <select name="bill" id="" class="material__bill material__input--left">
+                        <option value="請選擇">請選擇</option>
+                        <option value="個人電子發票">個人電子發票</option>
+                        <option value="捐贈發票">捐贈發票</option>
+                        <option value="統一編號">統一編號</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <lable class="material__title">雲端發票號碼</lable>
+                    <input type="text" class="material__billnumber material__input--left">
+                </div>
+                <input onclick="settlement()" type="button" class="material__outbtn" value="馬上結帳">
+            </form>
+        </section>
+        <!-- End section4 -->
+            
+        <!-- star footer -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer-content-left">
+                    <div class="footer-iconbox">
+                        <img src="images/youtube.png" alt="" class="footer__icon">
+                        <img src="images/instagram.png" alt="" class="footer__icon">
+                        <img src="images/facebook.png" alt="" class="footer__icon">
+                    </div>
+                    <div class="footer-data">
+                        <p class="footer-data__address">台中市XX區XX路XX號X樓</p>
+                        <p class="footer-data__number">統一編號:12345678</p>
+                    </div>
+                </div>
+                <div class="footer-content-right">
+                    <a href="#!" class="footer__link">聯絡我們</a>
+                    <a href="#!" class="footer__link">常見Q&A</a>
+                    <a href="#!" class="footer__link">服務條款</a>
+                    <a href="#!" class="footer__link">退換貨說明</a>
+                </div>
+            </div>
+        </footer>
+        <!-- star footer -->
+    </div>
+    <script src="/js/index.js"></script>

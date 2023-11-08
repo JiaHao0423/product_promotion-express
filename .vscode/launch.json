@@ -1,0 +1,15 @@
+{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "對 localhost 啟動 Chrome",
+            "url": "file:///C:/Users/we575/OneDrive/%E6%A1%8C%E9%9D%A2/%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/%E4%BD%9C%E6%A5%AD/product_promotion/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
