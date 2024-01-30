@@ -1,6 +1,4 @@
 import express from "express";
-import mysql from "mysql";
-import sequelizePackage from "sequelize";
 
 
 //購物車表單&購物清單
