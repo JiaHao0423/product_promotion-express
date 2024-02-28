@@ -317,6 +317,7 @@ p{
 .card__img{
     width: 100%;
     height: 130px;
+    cursor: pointer;
 }
 .card__img:hover{
     filter: blur(3px);
@@ -737,3 +738,93 @@ p{
         font-size: 10px;
     }
 }
+
+/* product視圖模板 */
+.product-container{
+    height: 400px;
+    background: #fff;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    align-items: start;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+}
+.product__imageContainer,.product__detail{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.product__imageContainer{
+    overflow: hidden;
+}
+.product__imageContainer a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+}
+.product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}
+@media screen and (max-width: 768px) {
+    .product__image{
+        height: 200px;
+        width: auto;
+    }
+}
+.product__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+}
+.product-price__sale-price{
+    font-size: 28px;
+    color: red;
+    font-weight: 700;
+}
+.product-addToCart {
+    width: 100%;
+    height: 40px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: center; 
+    position: absolute;
+    bottom: 0;
+}
+.product-addToCart__dropdown {
+    position: absolute; 
+    left: 0; 
+}
+
+.product-addToCart__btn {
+    position: absolute; 
+    right: 0; 
+}
+.product-addToCart__btn {
+    width: 150px;
+    display: inline-block;
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: #fff; 
+    border: 1px solid #007bff; 
+    border-radius: 5px; 
+    text-align: center; 
+    text-decoration: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.product-addToCart__btn:hover {
+    background-color: #0056b3; 
+    color: #fff; 
+}
+
