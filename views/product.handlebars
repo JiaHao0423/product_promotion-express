@@ -2,49 +2,24 @@
 
 <div class="product-container">
     <div class="product__imageContainer">
-        <a href="/product?id={{id}}">
-            <img src='/images/{{class}}.jpg' alt="" class="product__image">
-        </a>
+        <img src='/images/{{class}}.jpg' alt="" class="product__image">
     </div>
     <div class="product__detail">
         <h1 class="product__name-title">{{name}}</h2>
-        <div class="product-price">
-            <div class="product-price__sale-price">${{sale_price}}</div>
-        </div>
-        <div class="product-addToCart">
-            <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="product-addToCart__dropdown">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-            </select>
-            <span class="product-addToCart__btn">
-                <span class="product-addToCart__btn-text">加入購物車</span>
-            </span>
-        </div>
+            <div class="product-price">
+                <div class="product-price__sale-price">${{sale_price}}</div>
+            </div>
+            <div class="product-addToCart">
+                <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="product-addToCart__dropdown">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+                <span class="product-addToCart__btn">
+                    <span class="product-addToCart__btn-text">加入購物車</span>
+                </span>
+            </div>
     </div>
 </div>
-{{!-- <div class="commodity-card">
-    <div class="card-cover">
-        <p class="card__discount ">{{discount}}折</p>
-
-    </div>
-    <div class="card-content">
-        <p class="card__name">{{name}}</p>
-        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-        </select>
-    </div>
-    <div class="card-oder">
-        <div class="card-price">
-            <div class="card-price__priceafter">${{sale_price}}</div>
-            <div class="card-price__pricebefore">${{price}}</div>
-        </div>
-        <button onclick="addcard('{{class}}',{{id}})" class="card__btn">加入購物車</button>
-    </div>
-</div> --}}
-
 {{/with}}

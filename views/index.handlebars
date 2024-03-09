@@ -1,87 +1,261 @@
 <div class="wrapper">
-        <!-- Star section2 -->
-        <section class="reciprocal">
-            <div class="reciprocal-container container">
-                <img src="/images/alarm-clock.png" alt="" class="reciprocal__img">
-                <p class="reciprocal__today">每日特賣</p>
-                <p>倒數</p>
-                <div class="reciprocal__time">
-                    <span class="hours">08</span>
-                    <p>:</p>
-                    <span class="minutes">01</span>
-                    <p>:</p>
-                    <span class="seconds">27</span>
+    <!-- Star section2 -->
+    <section class="reciprocal">
+        <div class="reciprocal-container container">
+            <img src="/images/alarm-clock.png" alt="" class="reciprocal__img">
+            <p class="reciprocal__today">每日特賣</p>
+            <p>倒數</p>
+            <div class="reciprocal__time">
+                <span class="hours">08</span>
+                <p>:</p>
+                <span class="minutes">01</span>
+                <p>:</p>
+                <span class="seconds">27</span>
+            </div>
+        </div>
+    </section>
+    <!-- End section2 -->
+
+    <!-- Star section3 -->
+    <!-- Graphics card -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="graphicscard">顯示卡</h2>
+        <div class="commodity-container container" id="graphicscardlist">
+            {{#each rows1}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- End section2 -->
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- Hard drive -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="harddrive">硬碟</h2>
+        <div class="commodity-container container" id="harddrivelist">
+            {{#each rows2}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- Keyboard&Mouse -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="keyboard&mouse">鍵盤/滑鼠</h2>
+        <div class="commodity-container container" id="keyboard_mouselist">
+            {{#each rows3}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- Memory card -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="memorycard">記憶卡</h2>
+        <div class="commodity-container container" id="memorycardlist">
+            {{#each rows4}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- Screen -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="screen">螢幕</h2>
+        <div class="commodity-container container" id="screenlist">
+            {{#each rows5}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- Computer -->
+    <section class="commodity">
+        <h2 class="commodity_title" id="computer">主機</h2>
+        <div class="commodity-container container" id="computerlist">
+            {{#each rows6}}
+            {{#with this}}
+            <div class="commodity-col">
+                <div class="commodity-card">
+                    <div class="card-cover">
+                        <p class="card__discount ">{{discount}}折</p>
+                        <a href="/product/{{id}}">
+                            <img src="/images/{{class}}.jpg" alt="" class="card__img">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="card__name">{{name}}</p>
+                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="card-oder">
+                        <div class="card-price">
+                            <div class="card-price__priceafter">${{sale_price}}</div>
+                            <div class="card-price__pricebefore">${{price}}</div>
+                        </div>
+                        <button onclick="addcard({{class}},{{id}})" class="card__btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+    </section>
+    <!-- End section3 -->
 
-        <!-- Star section3 -->
-        <!-- Graphics card -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="graphicscard">顯示卡</h2>
-            <div class="commodity-container container" id="graphicscardlist">
-                
-            </div>
-        </section>
-        <!-- Hard drive -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="harddrive">硬碟</h2>
-            <div class="commodity-container container" id="harddrivelist">
-                
-            </div>
-        </section>
-        <!-- Keyboard&Mouse -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="keyboard&mouse">鍵盤/滑鼠</h2>
-            <div class="commodity-container container" id="keyboard_mouselist">
-                
-            </div>
-        </section>
-        <!-- Memory card -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="memorycard">記憶卡</h2>
-            <div class="commodity-container container" id="memorycardlist">
-                
-            </div>
-        </section>
-        <!-- Screen -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="screen">螢幕</h2>
-            <div class="commodity-container container" id="screenlist">
-                
-            </div>
-        </section>
-        <!-- Computer -->
-        <section class="commodity">
-            <h2 class="commodity_title" id="computer">主機</h2>
-            <div class="commodity-container container" id="computerlist">
-                
-            </div>
-        </section>
-        <!-- End section3 -->
+    <!-- Star section4 -->
+    <div id="shopping"></div>
+    <section class="container shopping">
+        <div class="shopping-cart">
+            <ul class="cart-title">
+                <li class="cart-title__img">商品</li>
+                <li class="cart-title__commodityname">單價</li>
+                <li class="cart-title__price">數量</li>
+                <li class="cart-title__quantity">總計</li>
+                <li class="cart-title__item">操作</li>
+            </ul>
+            <ul class="shopping-list">
+            </ul>
+        </div>
+    </section>
+    <!-- End section4 -->
 
-        <!-- Star section4 --> 
-        <div id="shopping"></div>
-        <section class="container shopping">
-            <div class="shopping-cart">
-                <ul class="cart-title">
-                    <li class="cart-title__img">商品</li>
-                    <li class="cart-title__commodityname">單價</li>
-                    <li class="cart-title__price">數量</li>
-                    <li class="cart-title__quantity">總計</li>
-                    <li class="cart-title__item">操作</li>
-                </ul>
-                <ul class="shopping-list">
-                </ul>
-            </div>
-        </section>
-        <!-- End section4 -->
-
-        <!-- Star section5 -->
-        <section class="material container">
-            <form action="#!" class="material-form">
-                <h1 class="form-title">訂購資訊</h3>
+    <!-- Star section5 -->
+    <section class="material container">
+        <form action="#!" class="material-form">
+            <h1 class="form-title">訂購資訊</h3>
                 <div class="form-row">
                     <lable class="material__title">收件人姓名</lable>
                     <input type="text" class="material__name material__input--left">
@@ -90,16 +264,20 @@
                     <lable class="material__title">收件地址</lable>
                     <input type="text" class="material__address material__input--left">
                 </div>
-                <div class="form-row">   
+                <div class="form-row">
                     <lable class="material__title">收件人電話</lable>
                     <input type="tel" class="material__number material__input--left">
                 </div>
                 <div class="form-row form-pay">
                     <lable class="material__title">付款方式</lable>
                     <div class="material__input--left">
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="分期付款" checked>分期付款</lable>
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="轉帳">轉帳</lable>
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="貨到付款">貨到付款</lable>
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="分期付款"
+                                checked>分期付款</lable>
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay"
+                                value="轉帳">轉帳
+                        </lable>
+                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay"
+                                value="貨到付款">貨到付款</lable>
                     </div>
                 </div>
                 <div class="form-row">
@@ -116,9 +294,9 @@
                     <input type="text" class="material__billnumber material__input--left">
                 </div>
                 <input onclick="settlement()" type="button" class="material__outbtn" value="馬上結帳">
-            </form>
-        </section>
-        <!-- End section4 -->
-            
+        </form>
+    </section>
+    <!-- End section4 -->
+
 </div>
 <script src="/js/index.js"></script>
