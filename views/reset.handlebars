@@ -1,0 +1,50 @@
+<form id="reset_form" onsubmit="submitForm(); return false;">
+    <h2>重置密碼</h2>
+    <label for="oldPasshash">舊密碼:</label>
+    <input type="password" name="oldPasshash" required><br>
+    <div class="oldPasshash-error"></div>
+    <label for="newPasshash">新密碼:</label>
+    <input type="password" name="newPasshash" required><br>
+    <div class="newPasshash-error"></div>
+    <button type="submit">重置</button>
+</form>
+
+<script>
+    function submitForm() {
+        const form = document.getElementById('reset_form');
+        const oldPasshash = form.querySelector("input[name='oldPasshash']").value;
+        const newPasshash = form.querySelector("input[name='newPasshash']").value;
+        const oldPasshashError = document.querySelector(".oldPasshash-error");
+        const newPasshashError = document.querySelector(".newPasshash-error");
+
+        const postData = {
+            oldPasshash: oldPasshash,
+            newPasshash: newPasshash
+        };
+
+        fetch('/reset', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            if (!data.passhash && !data.oldPasshash) {
+                window.location.href = '/userPage'
+            } else if (data.passhash) {
+                newPasshashError.textContent = "";
+                oldPasshashError.textContent = "";
+                newPasshashError.textContent = data.passhash;
+            } else {
+                newPasshashError.textContent = "";
+                oldPasshashError.textContent = "";
+                oldPasshashError.textContent = data.oldPasshash;
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+
+    }
+</script>

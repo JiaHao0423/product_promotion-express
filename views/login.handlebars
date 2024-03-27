@@ -1,0 +1,48 @@
+<form id="login_form" onsubmit="submitForm(); return false;">
+    <h2>使用者登入</h2>
+    <label for="username">使用者帳號:</label>
+    <input type="text" name="username" required><br>
+    <div class="username-error"></div>
+    <label for="passhash">密碼:</label>
+    <input type="password" name="passhash" required><br>
+    <div class="passhash-error"></div>
+    <button type="submit">登入</button>
+</form>
+
+<script>
+    function submitForm() {
+        const form = document.getElementById('login_form');
+        const username = form.querySelector("input[name='username']").value;
+        const passhash = form.querySelector("input[name='passhash']").value;
+        const usernameError = document.querySelector(".username-error");
+        const passhashError = document.querySelector(".passhash-error");
+
+        const postData = {
+            username: username,
+            passhash: passhash
+        };
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            if (!data.username && !data.passhash) {
+                window.location.href = '/index'
+            } else {
+                console.log(data);
+                usernameError.textContent = "";
+                passhashError.textContent = "";
+                usernameError.textContent = data.username;
+                passhashError.textContent = data.passhash;
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+
+    }
+</script>

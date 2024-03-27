@@ -1,5 +1,8 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
+
+const { isEmail } = require('validator');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('users', {
@@ -10,10 +13,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required: [true, '請輸入使用者名稱'],
+        unique: true,
+        lowercase: true
       },
       passhash: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required: [true, '請輸入使用者密碼'],
+        minlength: [6, '密碼最小長度為6']
       },
       first_name: {
         type: Sequelize.STRING
@@ -25,7 +33,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required: [true, '請輸入信箱'],
+        unique: true,
+        lowercase: true,
+        validate: [isEmail, '請輸入正確信箱格式']
       },
       address: {
         type: Sequelize.STRING

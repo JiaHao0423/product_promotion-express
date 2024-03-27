@@ -1,0 +1,13 @@
+<div class="user-profile">
+    <h2 class="user-profile_title">會員資料</h2>
+    <ul class="user-profile__box">
+        {{#with user}}
+        <li><strong>會員帳號：</strong>{{username}}</li>
+        <li><strong>姓名：</strong>{{first_name}} {{last_name}}</li>
+        <li><strong>電話：</strong>{{phone}}</li>
+        <li><strong>信箱：</strong>{{email}}</li>
+        <li><strong>地址：</strong>{{address}}</li>
+        {{/with}}
+        <li><a href="/reset" class="user-profile__btn">重設密碼</a></li>
+    </ul>
+</div>
