@@ -1,22 +1,26 @@
 // 連接mysql
 const { raw } = require('mysql');
-const { Sequelize } = require('sequelize');
+const { Sequelize, where } = require('sequelize');
 const sequelize = new Sequelize('productpromotion', 'root', '0000', {
     dialect: 'mysql',
     host: 'localhost'
 });
+const ProductModel = require('../../models/product');
+const Product = ProductModel(sequelize, Sequelize)
 
 //首頁商品列表渲染
 exports.view = (req, res) => {
-    sequelize.query('SELECT * FROM product')
-        .then(([rows, metadata]) => {
+
+    Product.findAll()
+        .then(products => {
+            const data = products.map(product => product.dataValues);
             res.render('index', {
-                rows1: rows.slice(0, 8),
-                rows2: rows.slice(8, 16),
-                rows3: rows.slice(16, 24),
-                rows4: rows.slice(24, 32),
-                rows5: rows.slice(32, 40),
-                rows6: rows.slice(40, 48)
+                rows1: data.slice(0, 8),
+                rows2: data.slice(8, 16),
+                rows3: data.slice(16, 24),
+                rows4: data.slice(24, 32),
+                rows5: data.slice(32, 40),
+                rows6: data.slice(40, 48)                
             });
         })
         .catch(err => {
@@ -30,11 +34,15 @@ exports.view = (req, res) => {
 exports.find = (req, res) => {
     const searchText = req.body.search;
 
-    sequelize.query('SELECT * FROM product WHERE name LIKE :search', {
-        replacements: { search: '%' + searchText + '%' },
-        type: sequelize.QueryTypes.SELECT
+    Product.findAll({
+        where: {
+            name: {
+                [sequelize.Sequelize.Op.like]: '%' + searchText + '%'
+            }
+        }
     })
-        .then(data => {
+        .then(products => {
+            const data = products.map(product => product.dataValues);
             res.render('search', { data: data });
         })
         .catch(err => {
@@ -46,8 +54,8 @@ exports.find = (req, res) => {
 
 // 分頁查詢渲染
 exports.pagination = (req, res) => {
-    let page = req.query.page;
-    let limit = parseInt(req.query.limit);
+    let page = req.query.page || 1;
+    let limit = parseInt(req.query.limit) || 8;
     const offset = (page - 1) * limit;
     let title = "";
 
@@ -67,15 +75,18 @@ exports.pagination = (req, res) => {
         case "5":
             title = "螢幕"
             break;
-        default:
+        case "6":
             title = "主機"
+            break;
+        default:
+            title = "顯示卡"
     }
-    sequelize.query('SELECT * FROM product LIMIT :limit OFFSET :offset', {
-        replacements: { limit, offset },
-        type: sequelize.QueryTypes.SELECT,
-        raw: true
+    Product.findAll({
+        limit: limit,
+        offset: offset
     })
-        .then(data => {
+        .then(products => {
+            const data = products.map(product => product.dataValues);
             res.render('pagination', { data: data, title: title });
         })
         .catch(err => {
@@ -89,12 +100,12 @@ exports.pagination = (req, res) => {
 exports.product = (req, res) => {
     const id = req.params.id;
 
-    sequelize.query('SELECT * FROM product WHERE id LIKE :id', {
-        replacements: { id: id },
-        type: sequelize.QueryTypes.SELECT
+    Product.findAll({
+        where: { id: id }
     })
-        .then(data => {
-            res.render('product', { data: data[0] });
+        .then(products => {
+            const data = products.map(product => product.dataValues)[0];
+            res.render('product', { data: data });
         })
         .catch(err => {
             console.error(err);
