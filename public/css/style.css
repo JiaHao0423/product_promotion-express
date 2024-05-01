@@ -584,6 +584,12 @@ p {
     align-items: center;
 }
 
+.content__quantity {
+    width: 50px;
+    border-width: 0;
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
 
     .content__price,

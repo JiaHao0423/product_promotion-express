@@ -24,7 +24,7 @@
             {{#each rows1}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -33,11 +33,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -45,9 +45,15 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
@@ -60,7 +66,7 @@
             {{#each rows2}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -69,11 +75,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -81,9 +87,15 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
@@ -96,7 +108,7 @@
             {{#each rows3}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -105,11 +117,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -117,9 +129,15 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
@@ -132,7 +150,7 @@
             {{#each rows4}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -141,11 +159,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -153,9 +171,15 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
@@ -168,7 +192,7 @@
             {{#each rows5}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -177,11 +201,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -189,9 +213,15 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
@@ -204,7 +234,7 @@
             {{#each rows6}}
             {{#with this}}
             <div class="commodity-col">
-                <div class="commodity-card">
+                <form action="/addToCart" method="POST" class="commodity-card">
                     <div class="card-cover">
                         <p class="card__discount ">{{discount}}折</p>
                         <a href="/product/{{id}}">
@@ -213,11 +243,11 @@
                     </div>
                     <div class="card-content">
                         <p class="card__name">{{name}}</p>
-                        <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="card__select">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="card-oder">
@@ -225,78 +255,62 @@
                             <div class="card-price__priceafter">${{sale_price}}</div>
                             <div class="card-price__pricebefore">${{price}}</div>
                         </div>
-                        <button onclick="addcard('{{this.class}}','{{id}}')" class="card__btn">加入購物車</button>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="card__btn">
                     </div>
-                </div>
+                </form>
             </div>
             {{/with}}
             {{/each}}
         </div>
     </section>
     <!-- End section3 -->
-
-    <!-- Star section4 -->
-    <div id="shopping"></div>
-    <section class="container shopping">
-        <div class="shopping-cart">
-            <ul class="cart-title">
-                <li class="cart-title__img">商品</li>
-                <li class="cart-title__commodityname">單價</li>
-                <li class="cart-title__price">數量</li>
-                <li class="cart-title__quantity">總計</li>
-                <li class="cart-title__item">操作</li>
-            </ul>
-            <ul class="shopping-list">
-            </ul>
-        </div>
-    </section>
-    <!-- End section4 -->
-
-    <!-- Star section5 -->
-    <section class="material container">
-        <form action="#!" class="material-form">
-            <h1 class="form-title">訂購資訊</h3>
-                <div class="form-row">
-                    <lable class="material__title">收件人姓名</lable>
-                    <input type="text" class="material__name material__input--left">
-                </div>
-                <div class="form-row">
-                    <lable class="material__title">收件地址</lable>
-                    <input type="text" class="material__address material__input--left">
-                </div>
-                <div class="form-row">
-                    <lable class="material__title">收件人電話</lable>
-                    <input type="tel" class="material__number material__input--left">
-                </div>
-                <div class="form-row form-pay">
-                    <lable class="material__title">付款方式</lable>
-                    <div class="material__input--left">
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay" value="分期付款"
-                                checked>分期付款</lable>
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay"
-                                value="轉帳">轉帳
-                        </lable>
-                        <lable class="material__lable"><input type="radio" class="material__pay" name="pay"
-                                value="貨到付款">貨到付款</lable>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <lable class="material__title">發票類別</lable>
-                    <select name="bill" id="" class="material__bill material__input--left">
-                        <option value="請選擇">請選擇</option>
-                        <option value="個人電子發票">個人電子發票</option>
-                        <option value="捐贈發票">捐贈發票</option>
-                        <option value="統一編號">統一編號</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <lable class="material__title">雲端發票號碼</lable>
-                    <input type="text" class="material__billnumber material__input--left">
-                </div>
-                <input onclick="settlement()" type="button" class="material__outbtn" value="馬上結帳">
-        </form>
-    </section>
-    <!-- End section4 -->
-
 </div>
-<script src="/js/index.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var time = document.querySelectorAll('.reciprocal__time span');
+
+        var tempDate = new Date();
+        var tempYear = tempDate.getFullYear();
+        var tempMonth = tempDate.getMonth() + 1;
+        var tempDay = tempDate.getDate();
+
+        var reciprocal = new Date(tempYear, tempMonth, tempDay + 1, 0, 0, 0); //倒數時間
+        var reciprocalTime = reciprocal.getTime();
+
+        function remaindingTime() {
+            var today = new Date().getTime();
+
+            var t = reciprocalTime - today;
+
+            var oneDay = 24 * 60 * 60 * 1000;
+            var oneHour = 60 * 60 * 1000;
+            var oneMinute = 60 * 1000;
+
+            var hours = Math.floor((t % oneDay) / oneHour); //小時
+            var minutes = Math.floor((t % oneHour) / oneMinute); //分鐘
+            var seconds = Math.floor((t % oneMinute) / 1000); //秒鐘
+
+            var values = [hours, minutes, seconds];
+            function format(values) {
+                if (values < 10) {
+                    return (values = `0${values}`)
+                }
+                return values
+            };
+
+            time.forEach(function (time, index) {
+                time.innerHTML = format(values[index])
+            });
+        }
+        var countdown = setInterval(remaindingTime, 1000);
+    })
+
+
+</script>

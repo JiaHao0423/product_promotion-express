@@ -86,6 +86,7 @@ exports.login_post = async (req, res) => {
 
 exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
+    req.session.user = null
     res.redirect('/index');
 }
 

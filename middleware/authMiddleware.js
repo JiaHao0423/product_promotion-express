@@ -37,6 +37,7 @@ const checkUser = (req, res, next) => {
             } else {
                 let user = await User.findOne({ where: { id: decodeddToken.id } });
                 res.locals.user = user.dataValues;
+                req.session.user = user.dataValues;
                 next();
             }
         })

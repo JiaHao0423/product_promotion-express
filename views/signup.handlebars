@@ -54,8 +54,11 @@
         }).then(response => {
             return response.json();
         }).then(data => {
-            if (!data.username && !data.passhash && !data.email) {
-                window.location.href = '/index'
+            var usertext = data.errors && data.errors.username ? data.errors.username : "";
+            var passhashtext = data.errors && data.errors.passhash ? data.errors.passhash : "";
+            var emailtext = data.errors && data.errors.email ? data.errors.email : "";
+            if (!usertext && !passhashtext && !emailtext) {
+                window.location.href = '/userPage';
             } else {
                 usernameError.textContent = "";
                 passhashError.textContent = "";

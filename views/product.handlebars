@@ -1,25 +1,34 @@
 {{#with data}}
 
-<div class="product-container">
-    <div class="product__imageContainer">
-        <img src='/images/{{class}}.jpg' alt="" class="product__image">
+<form action="/addToCart" method="POST" class="commodity-card">
+    <div class="product-container">
+        <div class="product__imageContainer">
+            <img src='/images/{{class}}.jpg' alt="" class="product__image">
+        </div>
+        <div class="product__detail">
+            <h1 class="product__name-title">{{name}}</h2>
+                <div class="product-price">
+                    <div class="product-price__sale-price">${{sale_price}}</div>
+                </div>
+                <div class="product-addToCart">
+                    <select name="quantity" id="{{class}}_{{id}}" class="card__select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    <span class="product-addToCart__btn">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="classname" value="{{class}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="price" value="{{price}}">
+                        <input type="hidden" name="sale_price" value="{{sale_price}}">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="image" value="{{image}}">
+                        <input type="submit" value="加入購物車" class="product-addToCart__btn">
+                    </span>
+                </div>
+        </div>
     </div>
-    <div class="product__detail">
-        <h1 class="product__name-title">{{name}}</h2>
-            <div class="product-price">
-                <div class="product-price__sale-price">${{sale_price}}</div>
-            </div>
-            <div class="product-addToCart">
-                <select name="{{class}}_{{id}}" id="{{class}}_{{id}}" class="product-addToCart__dropdown">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                </select>
-                <span class="product-addToCart__btn">
-                    <span class="product-addToCart__btn-text">加入購物車</span>
-                </span>
-            </div>
-    </div>
-</div>
+</form>
 {{/with}}

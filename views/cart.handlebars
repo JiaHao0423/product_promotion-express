@@ -1,0 +1,91 @@
+<div id="shopping">
+    <section class="container shopping">
+        <div class="shopping-cart">
+            <ul class="cart-title">
+                <li class="cart-title__img">商品</li>
+                <li class="cart-title__commodityname">單價</li>
+                <li class="cart-title__price">數量</li>
+                <li class="cart-title__quantity">總計</li>
+                <li class="cart-title__item">操作</li>
+            </ul>
+            <ul class="shopping-list">
+                {{#each cart}}
+                {{#with this}}
+                <div class="shopping-cart-content">
+                    <li class="content-detail">
+                        <a href="/product/{{id}}">
+                        <img src="images/{{classname}}.jpg" alt="" class="content__img">
+                        </a>
+                        <p class="content__name">{{name}}</p>
+                    </li>
+                    <li class="content__price">{{sale_price}}</li>
+                    <form method="post" action="/edit_product_quantity">
+                        <div class="content-box">
+                            <input type="hidden" value="{{id}}" name="id">
+                            <input type="submit" value="-" class="content__btn" name="decrease">
+                            <input type="text" value="{{quantity}}" name="quantity" class="content__quantity" readonly>
+                            <input type="submit" value="+" class="content__btn" name="increase">
+                        </div>
+                    </form>
+                    <li class="content__total">{{price}}</li>
+                    <form method="post" action="/remove_product">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="image" src="images/delect.png" alt="Submit" name="remove__btn"
+                            class="content__icon">
+                    </form>
+                </div>
+                {{/with }}
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+
+</div>
+<section class="material container">
+    <form action="/place_order" method="post" class="material-form">
+        <h1 class="form-title">訂購資訊</h3>
+            <div class="form-row">
+                <lable class="material__title">收件人姓名</lable>
+                <input type="text" class="material__name material__input--left" name="name">
+            </div>
+            <div class="form-row">
+                <lable class="material__title">收件地址</lable>
+                <input type="text" class="material__address material__input--left">
+            </div>
+            <div class="form-row">
+                <lable class="material__title">收件人電話</lable>
+                <input type="tel" class="material__number material__input--left">
+            </div>
+            <div class="form-row form-pay">
+                <lable class="material__title">付款方式</lable>
+                <div class="material__input--left">
+                    <lable class="material__lable">
+                        <input type="radio" class="material__pay" name="pay" value="分期付款" checked>
+                        分期付款
+                    </lable>
+                    <lable class="material__lable">
+                        <input type="radio" class="material__pay" name="pay" value="轉帳">
+                        轉帳
+                    </lable>
+                    <lable class="material__lable">
+                        <input type="radio" class="material__pay" name="pay" value="貨到付款">
+                        貨到付款
+                    </lable>
+                </div>
+            </div>
+            <div class="form-row">
+                <lable class="material__title">發票類別</lable>
+                <select name="bill" id="" class="material__bill material__input--left">
+                    <option value="請選擇">請選擇</option>
+                    <option value="個人電子發票">個人電子發票</option>
+                    <option value="捐贈發票">捐贈發票</option>
+                    <option value="統一編號">統一編號</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <lable class="material__title">雲端發票號碼</lable>
+                <input type="text" class="material__billnumber material__input--left">
+            </div>
+            <input onclick="settlement()" type="button" class="material__outbtn" value="馬上結帳">
+    </form>
+</section>
