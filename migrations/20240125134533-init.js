@@ -66,6 +66,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      order_id: {
+        type: Sequelize.STRING
+      },
       user_id: {
         type: Sequelize.INTEGER
       },
@@ -73,10 +76,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       payment_method: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       invoice_category: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       invoice_number: {
         type: Sequelize.STRING
@@ -121,7 +124,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       order_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       product_id: {
         type: Sequelize.INTEGER

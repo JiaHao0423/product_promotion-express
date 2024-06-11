@@ -14,6 +14,8 @@ const CartProduct = CartProductModel(sequelize, Sequelize)
 const ProductModel = require('../../models/product');
 const Product = ProductModel(sequelize, Sequelize)
 const { product } = require('./productControllers');
+const OrderModel = require('../../models/order');
+const Order = OrderModel(sequelize, Sequelize)
 Cart.hasMany(CartProduct, {
     foreignKey: 'cart_id'
 });
@@ -128,10 +130,6 @@ exports.view = async (req, res) => {
             throw err;
         }
     }
-
-
-
-
 }
 
 exports.remove = async (req, res) => {

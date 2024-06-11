@@ -1,0 +1,48 @@
+<section class="material container">
+    <form action="/checkout-data" method="post" class="material-form">
+        <h1 class="form-title">訂購資訊</h1>
+        <div class="form-row">
+            <lable class="material__title">收件人姓名</lable>
+            <input type="text" class="material__name material__input--left" name="name">
+        </div>
+        <div class="form-row">
+            <lable class="material__title">收件地址</lable>
+            <input type="text" class="material__address material__input--left" name="address">
+        </div>
+        <div class="form-row">
+            <lable class="material__title">收件人電話</lable>
+            <input type="tel" class="material__number material__input--left" name="number">
+        </div>
+        <div class="form-row form-pay">
+            <lable class="material__title">付款方式</lable>
+            <div class="material__input--left">
+                <lable class="material__lable">
+                    <input type="radio" class="material__pay" name="pay" value="分期付款" checked name="pay">
+                    信用卡一次性付款
+                </lable>
+                <lable class="material__lable">
+                    <input type="radio" class="material__pay" name="pay" value="轉帳" name="pay">
+                    轉帳
+                </lable>
+                <lable class="material__lable">
+                    <input type="radio" class="material__pay" name="pay" value="貨到付款" name="pay">
+                    貨到付款
+                </lable>
+            </div>
+        </div>
+        <div class="form-row">
+            <lable class="material__title">發票類別</lable>
+            <select name="bill" id="" class="material__bill material__input--left">
+                <option value="請選擇">請選擇</option>
+                <option value="個人電子發票">個人電子發票</option>
+                <option value="捐贈發票">捐贈發票</option>
+                <option value="統一編號">統一編號</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <lable class="material__title">雲端發票號碼</lable>
+            <input type="text" class="material__billnumber material__input--left" name="bill_number">
+        </div>
+        <input type="submit" class="material__outbtn" value="馬上結帳">
+    </form>
+</section>

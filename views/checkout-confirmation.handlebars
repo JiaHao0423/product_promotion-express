@@ -1,0 +1,16 @@
+<form method="post" action="/create-order">
+    <div class="create_container">
+        {{#with data}}
+        <h2 class="checkout_title">結帳資料確認</h2>
+        <ul>
+            <li>姓名：{{name}}</li>
+            <li>地址：{{address}}</li>
+            <li>電話：{{number}}</li>
+            <li>付款方式：{{pay}}</li>
+            <li>發票類別：{{bill}}</li>
+            <li>發票號碼：{{bill_number}}</li>
+        </ul>
+        <button type="submit" class="checkout_btn">前往結帳</button>
+        {{/with }}
+    </div>
+</form>
