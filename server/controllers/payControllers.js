@@ -125,12 +125,7 @@ exports.processPayment = async (req, res) => {
     var product_item = product_items.join("#")
 
 
-    var { MERCHANTID, HASHKEY, HASHIV, HOST } = {
-        MERCHANTID: "2000132",
-        HASHKEY: "5294y06JbISpM5x9",
-        HASHIV: "v77hoKGq4kWxNNIS",
-        HOST: "http://localhost:8081/"
-    }
+    var { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
     var options = {
         OperationMode: 'Test',
         MercProfile: {
