@@ -56,7 +56,8 @@ app.use('/', payRoutes);
 app.get("/*", (req, res) => {
   res.send("not found");
 });
-app.listen(8081, () => {
+const port = process.env.PORT || 8081;
+app.listen(port, () => {
   console.log("express app listening on 8081")
 });
 
