@@ -45,8 +45,8 @@ var loginRoutes = require('./server/routes/login');
 app.use('/', loginRoutes);
 var cartRoutes = require('./server/routes/cart');
 app.use('/', cartRoutes);
-var patRoutes = require('./server/routes/pay');
-app.use('/', patRoutes);
+var payRoutes = require('./server/routes/pay');
+app.use('/', payRoutes);
 
 
 

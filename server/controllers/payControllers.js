@@ -6,8 +6,8 @@ var sequelize = new Sequelize('productpromotion', 'root', '0000', {
     dialect: 'mysql',
     host: 'localhost'
 });
-var { pay } = require('./payControllers');
-const { product } = require('./productControllers');
+// var { pay } = require('./payControllers');
+// const { product } = require('./productControllers');
 var ecpay_payment = require('ecpay_aio_nodejs');
 const OrderModel = require('../../models/order');
 const Order = OrderModel(sequelize, Sequelize)
