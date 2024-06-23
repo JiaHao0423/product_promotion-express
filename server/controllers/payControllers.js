@@ -2,9 +2,10 @@ var { raw } = require('mysql');
 var bodyParser = require('body-parser');
 var { Sequelize, where } = require('sequelize');
 var session = require('express-session');
-var sequelize = new Sequelize('productpromotion', 'root', '0000', {
+const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
     dialect: 'mysql',
-    host: 'localhost'
+    host: 'hkg1.clusters.zeabur.com',
+    port: 30395
 });
 // var { pay } = require('./payControllers');
 // const { product } = require('./productControllers');
