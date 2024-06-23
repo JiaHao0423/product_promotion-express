@@ -5,7 +5,13 @@ var session = require('express-session');
 const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
     dialect: 'mysql',
     host: 'hkg1.clusters.zeabur.com',
-    port: 30395
+    port: 30395,
+    pool: {
+        max: 10, // 最大連接數
+        min: 0, // 最小連接數
+        acquire: 30000, // 獲取連接的超時時間（毫秒）
+        idle: 10000 // 連接閒置時間（毫秒）超過這個時間連接將被釋放
+    }
 });
 // var { pay } = require('./payControllers');
 // const { product } = require('./productControllers');
