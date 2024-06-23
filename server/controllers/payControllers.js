@@ -156,8 +156,8 @@ exports.processPayment = async (req, res) => {
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
         ItemName: product_item, // 商品名稱
-        ReturnURL: '${HOST}/order-completion',
-        ClientBackURL: '${HOST}/',
+        ReturnURL: HOST + '/order-completion',
+        ClientBackURL: HOST + '/order-completion',
         NeedExtraPaidInfo: 'N' // 額外付款資訊
     };
     var create = new ecpay_payment(options);
