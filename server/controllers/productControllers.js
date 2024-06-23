@@ -9,10 +9,11 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
         connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
     },
     pool: {
-        max: 10, // 最大連接數
-        min: 0, // 最小連接數
-        acquire: 30000, // 獲取連接的超時時間（毫秒）
-        idle: 10000 // 連接閒置時間（毫秒）超過這個時間連接將被釋放
+        max: 15,
+        min: 5,
+        idle: 20000,
+        evict: 15000,
+        acquire: 30000
     }
 });
 const ProductModel = require('../../models/product');
@@ -30,7 +31,7 @@ exports.view = (req, res) => {
                 rows3: data.slice(16, 24),
                 rows4: data.slice(24, 32),
                 rows5: data.slice(32, 40),
-                rows6: data.slice(40, 48)                
+                rows6: data.slice(40, 48)
             });
         })
         .catch(err => {
