@@ -6,6 +6,9 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
     dialect: 'mysql',
     host: 'hkg1.clusters.zeabur.com',
     port: 30395,
+    dialectOptions: {
+        connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
+    },
     pool: {
         max: 10, // 最大連接數
         min: 0, // 最小連接數
