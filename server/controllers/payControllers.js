@@ -79,7 +79,7 @@ exports.data = (req, res) => {
 exports.create = async (req, res) => {
     var now = new Date();
     var orderData = {
-        order_id: "TEST" + now.toISOString().replace(/[-:T.Z]/g, '').slice(0, 14),
+        order_id: "TE" + now.toISOString().slice(0, 10).replace(/-/g, ''),
         user_id: req.session.user.id,
         order_amount: 0,
         payment_method: req.session.data.pay,
@@ -150,7 +150,7 @@ exports.processPayment = async (req, res) => {
         },
         IsProjectContractor: false
     }
-    var uniqueid = order.order_id + '_' + crypto.randomBytes(4).toString('hex');
+    var uniqueid = order.order_id  + crypto.randomBytes(4).toString('hex');
 
     var base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
