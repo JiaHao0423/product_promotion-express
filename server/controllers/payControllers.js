@@ -119,6 +119,7 @@ exports.create = async (req, res) => {
 
 
 exports.processPayment = async (req, res) => {
+    var crypto = require('crypto');
     var userid = req.session.user.id
     var order = await Order.findOne({ where: { user_id: userid } })
     var orderAmounr = order.order_amount
@@ -149,9 +150,10 @@ exports.processPayment = async (req, res) => {
         },
         IsProjectContractor: false
     }
+    var uniqueid = order.order_id + '_' + crypto.randomBytes(4).toString('hex');
 
     var base_param = {
-        MerchantTradeNo: order.order_id, // 獨一無二的商家訂單編號
+        MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
         MerchantTradeDate: req.session.data.created_at, // 交易時間
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
@@ -162,7 +164,7 @@ exports.processPayment = async (req, res) => {
     };
     var create = new ecpay_payment(options);
     var html = create.payment_client.aio_check_out_credit_onetime(base_param);
-    // var html = create.payment_client.aio_check_out_all(base_param);
+
     res.render('ECpay', { html: html })
 
 };
