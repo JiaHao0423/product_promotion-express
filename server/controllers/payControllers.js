@@ -33,6 +33,7 @@ var OrderProduct = OrderProductModel(sequelize, Sequelize)
 var ProductModel = require('../../models/product');
 var Product = ProductModel(sequelize, Sequelize)
 
+var { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
 var options = {
     OperationMode: 'Test',
     MercProfile: {
@@ -155,7 +156,7 @@ exports.processPayment = async (req, res) => {
     var product_item = product_items.join("#")
 
 
-    var { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
+    
 
     var uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
 
