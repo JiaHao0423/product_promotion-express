@@ -3,12 +3,13 @@ var { raw } = require('mysql');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var { Sequelize, where } = require('sequelize');
-const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
+var { MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT } = process.env
+var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
     dialect: 'mysql',
-    host: 'mysql.zeabur.internal',
-    port: 3306,
+    host: MYSQL_HOST,
+    port: MYSQL_PORT,
     dialectOptions: {
-        connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
+        connectTimeout: 60000 
     },
     pool: {
         max: 15,
@@ -18,15 +19,15 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
         acquire: 30000
     }
 });
-const CartModel = require('../../models/cart');
-const Cart = CartModel(sequelize, Sequelize)
-const CartProductModel = require('../../models/cart_product');
-const CartProduct = CartProductModel(sequelize, Sequelize)
-const ProductModel = require('../../models/product');
-const Product = ProductModel(sequelize, Sequelize)
-const { product } = require('./productControllers');
-const OrderModel = require('../../models/order');
-const Order = OrderModel(sequelize, Sequelize)
+var CartModel = require('../../models/cart');
+var Cart = CartModel(sequelize, Sequelize)
+var CartProductModel = require('../../models/cart_product');
+var CartProduct = CartProductModel(sequelize, Sequelize)
+var ProductModel = require('../../models/product');
+var Product = ProductModel(sequelize, Sequelize)
+var { product } = require('./productControllers');
+var OrderModel = require('../../models/order');
+var Order = OrderModel(sequelize, Sequelize)
 Cart.hasMany(CartProduct, {
     foreignKey: 'cart_id'
 });

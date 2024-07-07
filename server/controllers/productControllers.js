@@ -1,12 +1,13 @@
 // 連接mysql
-const { raw } = require('mysql');
-const { Sequelize, where } = require('sequelize');
-const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
+var { raw } = require('mysql');
+var { Sequelize, where } = require('sequelize');
+var { MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT } = process.env
+var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
     dialect: 'mysql',
-    host: 'mysql.zeabur.internal',
-    port: 3306,
+    host: MYSQL_HOST,
+    port: MYSQL_PORT,
     dialectOptions: {
-        connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
+        connectTimeout: 60000 
     },
     pool: {
         max: 15,
@@ -16,15 +17,15 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
         acquire: 30000
     }
 });
-const ProductModel = require('../../models/product');
-const Product = ProductModel(sequelize, Sequelize)
+var ProductModel = require('../../models/product');
+var Product = ProductModel(sequelize, Sequelize)
 
 //首頁商品列表渲染
 exports.view = (req, res) => {
 
     Product.findAll()
         .then(products => {
-            const data = products.map(product => product.dataValues);
+            var data = products.map(product => product.dataValues);
             res.render('index', {
                 rows1: data.slice(0, 8),
                 rows2: data.slice(8, 16),
@@ -43,7 +44,7 @@ exports.view = (req, res) => {
 
 //查詢渲染
 exports.find = (req, res) => {
-    const searchText = req.body.search;
+    var searchText = req.body.search;
 
     Product.findAll({
         where: {
@@ -53,7 +54,7 @@ exports.find = (req, res) => {
         }
     })
         .then(products => {
-            const data = products.map(product => product.dataValues);
+            var data = products.map(product => product.dataValues);
             res.render('search', { data: data });
         })
         .catch(err => {
@@ -65,10 +66,10 @@ exports.find = (req, res) => {
 
 // 分頁查詢渲染
 exports.pagination = (req, res) => {
-    let page = req.query.page || 1;
-    let limit = parseInt(req.query.limit) || 8;
-    const offset = (page - 1) * limit;
-    let title = "";
+    var page = req.query.page || 1;
+    var limit = parseInt(req.query.limit) || 8;
+    var offset = (page - 1) * limit;
+    var title = "";
 
     switch (page) {
         case "1":
@@ -97,7 +98,7 @@ exports.pagination = (req, res) => {
         offset: offset
     })
         .then(products => {
-            const data = products.map(product => product.dataValues);
+            var data = products.map(product => product.dataValues);
             res.render('pagination', { data: data, title: title });
         })
         .catch(err => {
@@ -109,13 +110,13 @@ exports.pagination = (req, res) => {
 
 //單一產品頁
 exports.product = (req, res) => {
-    const id = req.params.id;
+    var id = req.params.id;
 
     Product.findAll({
         where: { id: id }
     })
         .then(products => {
-            const data = products.map(product => product.dataValues)[0];
+            var data = products.map(product => product.dataValues)[0];
             res.render('product', { data: data });
         })
         .catch(err => {

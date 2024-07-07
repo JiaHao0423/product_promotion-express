@@ -2,12 +2,15 @@ var { raw } = require('mysql');
 var bodyParser = require('body-parser');
 var { Sequelize, where } = require('sequelize');
 var session = require('express-session');
-const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
+
+
+var { MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT } = process.env
+var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
     dialect: 'mysql',
-    host: 'mysql.zeabur.internal',
-    port: 3306,
+    host: MYSQL_HOST,
+    port: MYSQL_PORT,
     dialectOptions: {
-        connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
+        connectTimeout: 60000
     },
     pool: {
         max: 15,
@@ -17,16 +20,31 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
         acquire: 30000
     }
 });
-// var { pay } = require('./payControllers');
-// const { product } = require('./productControllers');
-var ecpay_payment = require('ecpay_aio_nodejs');
-const OrderModel = require('../../models/order');
-const Order = OrderModel(sequelize, Sequelize)
-const OrderProductModel = require('../../models/order_product');
-const OrderProduct = OrderProductModel(sequelize, Sequelize)
-const ProductModel = require('../../models/product');
-const Product = ProductModel(sequelize, Sequelize)
 
+
+
+// var { pay } = require('./payControllers');
+// var { product } = require('./productControllers');
+var ecpay_payment = require('ecpay_aio_nodejs');
+var OrderModel = require('../../models/order');
+var Order = OrderModel(sequelize, Sequelize)
+var OrderProductModel = require('../../models/order_product');
+var OrderProduct = OrderProductModel(sequelize, Sequelize)
+var ProductModel = require('../../models/product');
+var Product = ProductModel(sequelize, Sequelize)
+
+var options = {
+    OperationMode: 'Test',
+    MercProfile: {
+        MerchantID: MERCHANTID,
+        HashKey: HASHKEY,
+        HashIV: HASHIV
+    },
+    IgnorePayment: {
+
+    },
+    IsProjectContractor: false
+}
 
 exports.checkout = (req, res) => {
     var cart = req.session.cart
@@ -138,19 +156,8 @@ exports.processPayment = async (req, res) => {
 
 
     var { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
-    var options = {
-        OperationMode: 'Test',
-        MercProfile: {
-            MerchantID: MERCHANTID,
-            HashKey: HASHKEY,
-            HashIV: HASHIV
-        },
-        IgnorePayment: {
 
-        },
-        IsProjectContractor: false
-    }
-    var uniqueid = order.order_id  + crypto.randomBytes(4).toString('hex');
+    var uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
 
     var base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
@@ -158,7 +165,7 @@ exports.processPayment = async (req, res) => {
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
         ItemName: product_item, // 商品名稱
-        ReturnURL: HOST + '/order-completion',
+        ReturnURL: HOST + '/pay-return',
         ClientBackURL: HOST + '/order-completion',
         NeedExtraPaidInfo: 'N' // 額外付款資訊
     };
@@ -168,7 +175,26 @@ exports.processPayment = async (req, res) => {
     res.render('ECpay', { html: html })
 
 };
+exports.return = (req, res) => {
+    console.log('req.body:', req.body);
 
+    const { CheckMacValue } = req.body;
+    const data = { ...req.body };
+    delete data.CheckMacValue; // 此段不驗證
+
+    const create = new ecpay_payment(options);
+    const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
+
+    console.log(
+        '確認交易正確性：',
+        CheckMacValue === checkValue,
+        CheckMacValue,
+        checkValue,
+    );
+
+    // 交易成功後，需要回傳 1|OK 給綠界
+    res.send('1|OK');
+};
 
 exports.completion = (req, res) => {
     res.render('order-completion');

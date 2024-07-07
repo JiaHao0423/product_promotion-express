@@ -10,5 +10,6 @@ router.post('/create-order',cartController.create)
 // router.get('/payment',cartController.pay)
 router.post('/payment-ECPay',cartController.processPayment)
 router.post('/order-completion',cartController.completion)
+router.post('/pay-return',cartController.return)
 
 module.exports = router;

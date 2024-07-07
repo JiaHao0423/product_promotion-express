@@ -1,11 +1,12 @@
-const { raw } = require('mysql');
-const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
+var { raw } = require('mysql');
+var { Sequelize } = require('sequelize');
+var { MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT } = process.env
+var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
     dialect: 'mysql',
-    host: 'mysql.zeabur.internal',
-    port: 3306,
+    host: MYSQL_HOST,
+    port: MYSQL_PORT,
     dialectOptions: {
-        connectTimeout: 60000 // 以毫秒为单位增加连接超时时间
+        connectTimeout: 60000 
     },
     pool: {
         max: 15,
@@ -15,13 +16,13 @@ const sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3p
         acquire: 30000
     }
 });
-const UserModle = require('../../models/user');
-const User = UserModle(sequelize, Sequelize)
-const jwt = require('jsonwebtoken');
+var UserModle = require('../../models/user');
+var User = UserModle(sequelize, Sequelize)
+var jwt = require('jsonwebtoken');
 
 
 // 錯誤處理
-const handleErrors = (err) => {
+var handleErrors = (err) => {
 
     let errors = { username: '', passhash: '', email: '' };
 
@@ -41,7 +42,7 @@ const handleErrors = (err) => {
     // 驗證錯誤並回傳相應訊息
     if (err.message.includes('Validation error')) {
         err.errors.forEach(errorItem => {
-            const { path, message } = errorItem;
+            var { path, message } = errorItem;
             errors[path] = message;
         })
     }
@@ -49,8 +50,8 @@ const handleErrors = (err) => {
     return errors;
 }
 
-const maxAge = 3 * 24 * 60 * 60;
-const createToken = (id) => {
+var maxAge = 3 * 24 * 60 * 60;
+var createToken = (id) => {
     return jwt.sign({ id }, 'net shop', {
         expiresIn: maxAge
     });
@@ -65,31 +66,31 @@ exports.login_get = (req, res) => {
 };
 
 exports.signup_post = async (req, res) => {
-    const { username, passhash, first_name, last_name, phone, email, address } = req.body;
+    var { username, passhash, first_name, last_name, phone, email, address } = req.body;
 
     try {
-        const user = await User.create({ username, passhash, first_name, last_name, phone, email, address });
-        const userData = await User.findOne({
+        var user = await User.create({ username, passhash, first_name, last_name, phone, email, address });
+        var userData = await User.findOne({
             where: { username: user.username }
         })
-        const token = createToken(userData.id)
+        var token = createToken(userData.id)
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
         res.status(200).json({ user: userData.id })
     } catch (err) {
-        const errors = handleErrors(err)
+        var errors = handleErrors(err)
         res.status(400).json({ errors })
     }
 };
 
 exports.login_post = async (req, res) => {
-    const { username, passhash } = req.body;
+    var { username, passhash } = req.body;
     try {
-        const user = await User.login(username, passhash)
-        const token = createToken(user.id)
+        var user = await User.login(username, passhash)
+        var token = createToken(user.id)
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
         res.status(200).json({ user: user.id });
     } catch (err) {
-        const errors = handleErrors(err);
+        var errors = handleErrors(err);
         res.status(400).json(errors);
     }
 
@@ -110,12 +111,12 @@ exports.reset_get = (req, res) => {
 };
 
 exports.reset_post = (req, res) => {
-    const { oldPasshash, newPasshash } = req.body;
-    const token = req.cookies.jwt;
+    var { oldPasshash, newPasshash } = req.body;
+    var token = req.cookies.jwt;
     jwt.verify(token, 'net shop', async (err, decodeddToken) => {
         try {
 
-            const check = await User.check(decodeddToken.id, oldPasshash)
+            var check = await User.check(decodeddToken.id, oldPasshash)
 
             if (check) {
                 await User.update({
@@ -126,14 +127,14 @@ exports.reset_post = (req, res) => {
                     individualHooks: true,
                 })
                 res.cookie('jwt', '', { maxAge: 1 });
-                const token = createToken(decodeddToken.id)
+                var token = createToken(decodeddToken.id)
                 res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
 
                 res.status(200).json({});
                 res.render('userPage');
             }
         } catch (err) {
-            const errors = handleErrors(err);
+            var errors = handleErrors(err);
             res.status(400).json(errors);
         }
     })
