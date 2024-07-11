@@ -161,6 +161,12 @@ exports.processPayment = async (req, res) => {
 
     var uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
 
+    session.order_details = {
+        orderNO: uniqueid,
+        orderAmounr: orderAmounr.toString(),
+        orderDate: req.session.data.created_at
+    }
+
     var base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
         MerchantTradeDate: req.session.data.created_at, // 交易時間
@@ -184,11 +190,11 @@ exports.return = (req, res) => {
 
     const create = new ecpay_payment(options);
     const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
-    
+
     // 交易成功後，需要回傳 1|OK 給綠界
     res.send('1|OK');
 };
 
 exports.completion = (req, res) => {
-    res.render('order-completion');
+    res.render('order-completion', { date: session.order_details });
 };
