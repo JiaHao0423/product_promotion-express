@@ -3,10 +3,10 @@ var { raw } = require('mysql');
 var { Sequelize, where } = require('sequelize');
 
 var { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env
-var sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
+var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     dialect: 'mysql',
-    host: 'mysql.zeabur.internal',
-    port: 3306,
+    host: DB_HOST,
+    port: DB_PORT,
     dialectOptions: {
         connectTimeout: 60000
     },
