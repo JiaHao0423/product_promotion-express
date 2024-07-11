@@ -16,7 +16,8 @@ var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
         idle: 20000,
         evict: 15000,
         acquire: 30000
-    }
+    },
+    logging: console.log
 });
 var ProductModel = require('../../models/product');
 var Product = ProductModel(sequelize, Sequelize)
