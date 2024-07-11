@@ -172,8 +172,8 @@ exports.processPayment = async (req, res) => {
         NeedExtraPaidInfo: 'N' // 額外付款資訊
     };
     var create = new ecpay_payment(options);
-    // var html = create.payment_client.aio_check_out_credit_onetime(base_param);
-    const html = create.payment_client.aio_check_out_all(base_param);
+    var html = create.payment_client.aio_check_out_credit_onetime(base_param);
+    // var html = create.payment_client.aio_check_out_all(base_param);
     res.render('ECpay', { html: html })
 
 };
