@@ -164,6 +164,7 @@ exports.processPayment = async (req, res) => {
     var base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
         MerchantTradeDate: req.session.data.created_at, // 交易時間
+        PaymentType:aio,
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
         ItemName: product_item, // 商品名稱
