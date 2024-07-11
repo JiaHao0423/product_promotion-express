@@ -8,7 +8,7 @@ var { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env
 var sequelize = new Sequelize('zeabur', 'root', 'q7sHPXWh6ln8YB2rfVIJa0e159t3pcZ4', {
     dialect: 'mysql',
     host: 'hkg1.clusters.zeabur.com',
-    port: 3306,
+    port: 30395,
     dialectOptions: {
         connectTimeout: 60000
     },
