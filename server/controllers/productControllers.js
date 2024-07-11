@@ -19,6 +19,7 @@ var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     },
     logging: console.log
 });
+
 var ProductModel = require('../../models/product');
 var Product = ProductModel(sequelize, Sequelize)
 
