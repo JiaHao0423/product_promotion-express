@@ -1,12 +1,13 @@
 var { raw } = require('mysql');
 var { Sequelize } = require('sequelize');
-var { MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT } = process.env
-var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
+
+var { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env
+var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     dialect: 'mysql',
-    host: MYSQL_HOST,
-    port: MYSQL_PORT,
+    host: DB_HOST,
+    port: DB_PORT,
     dialectOptions: {
-        connectTimeout: 60000 
+        connectTimeout: 60000
     },
     pool: {
         max: 15,
@@ -16,6 +17,7 @@ var sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
         acquire: 30000
     }
 });
+
 var UserModle = require('../../models/user');
 var User = UserModle(sequelize, Sequelize)
 var jwt = require('jsonwebtoken');
