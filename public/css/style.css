@@ -1221,9 +1221,52 @@ p {
 .checkout_btn:hover {
     background-color: #45a049;
 }
+/* payment 確認付款頁面 */
+.payment {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment__amount {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .payment__form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .payment__button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment__button:hover {
+    background-color: #45a049;
+  }
+  
+  .payment__button:active {
+    background-color: #3e8e41;
+  }
+
+
+
 
 /* order-completion 付款完成頁面 */
-.payment {
+.completion {
     max-width: 600px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -1234,46 +1277,46 @@ p {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.payment__icon-container {
+.completion__icon-container {
     margin-bottom: 20px;
 }
 
-.payment__icon {
+.completion__icon {
     font-size: 64px;
     color: #4CAF50;
 }
 
-.payment__title {
+.completion__title {
     font-size: 32px;
     color: #333;
     margin-bottom: 10px;
 }
 
-.payment__thank-you {
+.completion__thank-you {
     font-size: 18px;
     color: #666;
     margin-bottom: 30px;
 }
 
-.payment__order {
+.completion__order {
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.payment__order-title {
+.completion__order-title {
     font-size: 24px;
     color: #333;
     margin-bottom: 15px;
 }
 
-.payment__order-detail {
+.completion__order-detail {
     font-size: 16px;
     color: #666;
     margin-bottom: 10px;
 }
 
-.payment__order-detail:last-child {
+.completion__order-detail:last-child {
     margin-bottom: 0;
 }
