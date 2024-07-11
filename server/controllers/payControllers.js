@@ -157,14 +157,13 @@ exports.processPayment = async (req, res) => {
     var product_item = product_items.join("#")
 
 
-    
+
 
     var uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
 
     var base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
         MerchantTradeDate: req.session.data.created_at, // 交易時間
-        PaymentType:aio,
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
         ItemName: product_item, // 商品名稱
@@ -175,7 +174,7 @@ exports.processPayment = async (req, res) => {
     var create = new ecpay_payment(options);
     var html = create.payment_client.aio_check_out_credit_onetime(base_param);
     console.log(html);
-    
+
     res.render('ECpay', { html: html })
 
 };
