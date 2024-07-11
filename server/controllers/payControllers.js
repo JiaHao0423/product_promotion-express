@@ -167,13 +167,13 @@ exports.processPayment = async (req, res) => {
         TotalAmount: orderAmounr.toString(), // 交易金額
         TradeDesc: 'Test Transaction', // 交易描述
         ItemName: product_item, // 商品名稱
-        ReturnURL: HOST + 'pay-return',
-        ClientBackURL: HOST + 'order-completion',
+        ReturnURL: HOST + '/pay-return',
+        ClientBackURL: HOST + '/order-completion',
         NeedExtraPaidInfo: 'N' // 額外付款資訊
     };
     var create = new ecpay_payment(options);
-    var html = create.payment_client.aio_check_out_credit_onetime(base_param);
-
+    // var html = create.payment_client.aio_check_out_credit_onetime(base_param);
+    const html = create.payment_client.aio_check_out_all(base_param);
     res.render('ECpay', { html: html })
 
 };
