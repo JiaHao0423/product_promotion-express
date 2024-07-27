@@ -66,8 +66,7 @@ p {
 .header-navbar {
     height: 60px;
     width: 100%;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,31 +75,8 @@ p {
     border: 0;
 }
 
-.header__container {
-    border: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
 .header__commodity-column {
     width: 1000px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    height: 100%;
-}
-
-@media screen and (max-width: 1024px) {
-    .header__commodity-column {
-        gap: 10px;
-    }
-
-    .header__link {
-        padding: 0 10px;
-        font-size: 13px;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -109,28 +85,15 @@ p {
         left: 0;
         top: 0;
         width: 100%;
-        height: auto;
+        height: 100%;
         background-color: rgb(0, 0, 0);
         z-index: 500;
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        padding: 20px 0;
         justify-content: center;
         display: none;
         opacity: 0;
         visibility: hidden;
-    }
-
-    .header__item {
-        width: 100%;
-        height: auto;
-    }
-
-    .header__link {
-        width: 100%;
-        padding: 10px 15px;
-        justify-content: center;
     }
 
     #popup-menu:target {
@@ -140,12 +103,9 @@ p {
     }
 }
 
-.header__item {
-    height: 100%;
-    display: flex;
-    align-items: center;
+.header__container {
+    border: 0;
 }
-
 
 .header__logo {
     height: 60px;
@@ -156,41 +116,24 @@ p {
 }
 
 .header__link {
+    display: inline-block;
     width: 100%;
     line-height: 20px;
-    padding: 0 15px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.header__link:hover {
-    color: #0066cc;
-    background-color: #e6f2ff;
-}
-
-.header__item:last-child .header__link {
-    padding-right: 0;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 
 .header__search {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
+    gap: 5px;
 }
 
 .header__search-box {
-    border: none;
-    padding: 8px 12px;
-    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 16px;
 }
@@ -198,18 +141,17 @@ p {
 .header__search-btn {
     height: 35px;
     width: 50px;
-    background-color: #ff6600;
-    color: white;
+    padding: 10px 10px;
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
-    padding: 8px 15px;
     border-radius: 3px;
     font-size: 15px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
 .header__search-btn:hover {
-    background-color: #e65c00;
+    background-color: #45a049;
 }
 
 .header__close-btn {
@@ -244,7 +186,9 @@ p {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-
+.header__link:hover {
+    color: #FF9696;
+}
 
 .header__link::after {
     content: '';
@@ -1141,8 +1085,6 @@ p {
 
 /* login&signup Btn */
 .header__login-box {
-    display: flex;
-    gap: 10px;
     width: 180px;
     list-style-type: none;
     padding: 0;
@@ -1165,38 +1107,6 @@ p {
 
 .header__login-box li a:hover {
     background-color: #ddd;
-}
-
-.header__login-btn,
-.header__signup-btn,
-.header__userPage-btn,
-.header__logout-btn {
-    padding: 6px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.2s ease;
-}
-
-.header__login-btn,
-.header__userPage-btn {
-    background-color: #fff;
-    border: 1px solid #0066cc;
-    color: #0066cc;
-}
-
-.header__signup-btn,
-.header__logout-btn {
-    background-color: #0066cc;
-    border: 1px solid #0066cc;
-    color: #fff;
-}
-
-.header__login-btn:hover,
-.header__userPage-btn:hover,
-.header__signup-btn:hover,
-.header__logout-btn:hover {
-    opacity: 0.8;
 }
 
 /* userPageStyle */
@@ -1311,7 +1221,6 @@ p {
 .checkout_btn:hover {
     background-color: #45a049;
 }
-
 /* payment 確認付款頁面 */
 .payment {
     max-width: 400px;
@@ -1320,21 +1229,21 @@ p {
     background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.payment__amount {
+  }
+  
+  .payment__amount {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
     text-align: center;
-}
-
-.payment__form {
+  }
+  
+  .payment__form {
     display: flex;
     justify-content: center;
-}
-
-.payment__button {
+  }
+  
+  .payment__button {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -1343,15 +1252,15 @@ p {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-}
-
-.payment__button:hover {
+  }
+  
+  .payment__button:hover {
     background-color: #45a049;
-}
-
-.payment__button:active {
+  }
+  
+  .payment__button:active {
     background-color: #3e8e41;
-}
+  }
 
 
 
