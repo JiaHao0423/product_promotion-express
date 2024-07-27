@@ -66,7 +66,8 @@ p {
 .header-navbar {
     height: 60px;
     width: 100%;
-    background-color: #000000;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,6 +78,9 @@ p {
 
 .header__commodity-column {
     width: 1000px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -105,6 +109,9 @@ p {
 
 .header__container {
     border: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__logo {
@@ -119,21 +126,33 @@ p {
     display: inline-block;
     width: 100%;
     line-height: 20px;
-    padding: 20px 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header__link:hover {
+    color: #0066cc;
+    background-color: #e6f2ff;
+    border-radius: 4px;
 }
 
 .header__search {
     display: flex;
     align-items: center;
-    gap: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .header__search-box {
-    padding: 10px;
-    border: 1px solid #ccc;
+    border: none;
+    padding: 8px 12px;
+    width: 250px;
     border-radius: 3px;
     font-size: 16px;
 }
@@ -141,17 +160,18 @@ p {
 .header__search-btn {
     height: 35px;
     width: 50px;
-    padding: 10px 10px;
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #ff6600;
+    color: white;
     border: none;
+    padding: 8px 15px;
     border-radius: 3px;
     font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .header__search-btn:hover {
-    background-color: #45a049;
+    background-color: #e65c00;
 }
 
 .header__close-btn {
@@ -186,9 +206,7 @@ p {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.header__link:hover {
-    color: #FF9696;
-}
+
 
 .header__link::after {
     content: '';
@@ -1085,6 +1103,8 @@ p {
 
 /* login&signup Btn */
 .header__login-box {
+    display: flex;
+    gap: 10px;
     width: 180px;
     list-style-type: none;
     padding: 0;
@@ -1109,6 +1129,37 @@ p {
     background-color: #ddd;
 }
 
+.header__login-btn,
+.header__signup-btn,
+.header__userPage-btn,
+.header__logout-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.header__login-btn,
+.header__userPage-btn {
+    background-color: #fff;
+    border: 1px solid #0066cc;
+    color: #0066cc;
+}
+
+.header__signup-btn,
+.header__logout-btn {
+    background-color: #0066cc;
+    border: 1px solid #0066cc;
+    color: #fff;
+}
+
+.header__login-btn:hover,
+.header__userPage-btn:hover,
+.header__signup-btn:hover,
+.header__logout-btn:hover {
+    opacity: 0.8;
+}
 /* userPageStyle */
 .user-profile {
     background-color: #f9f9f9;
