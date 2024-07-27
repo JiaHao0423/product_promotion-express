@@ -56,6 +56,9 @@ app.use('/', payRoutes);
 app.get("/*", (req, res) => {
   res.send("not found");
 });
+app.get('/', (req, res) => {
+  res.redirect(301, 'https://product-zh.zeabur.app/index');
+});
 const port = process.env.PORT || 8081;
 app.listen(port, () => {
   console.log("express app listening on 8081")
