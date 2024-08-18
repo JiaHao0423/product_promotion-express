@@ -54,7 +54,7 @@ app.use('/', payRoutes);
 
 
 app.get("/*", (req, res) => {
-  res.send("not found");
+  res.send("/index");
 });
 app.get('/', (req, res) => {
   res.redirect(301, 'https://product-zh.zeabur.app/index');
