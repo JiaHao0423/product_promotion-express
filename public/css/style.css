@@ -258,6 +258,7 @@ p {
 .reciprocal {
     display: flex;
     margin: 30px 0;
+    margin-top: 60px;
 }
 
 .reciprocal-container {
