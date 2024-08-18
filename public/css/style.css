@@ -247,6 +247,7 @@ p {
     height: 350px;
     background-color: aqua;
     padding-top: 60px;
+    margin-bottom: 30px;
 }
 
 .jumbotron__img {
@@ -262,7 +263,6 @@ p {
 }
 
 .reciprocal-container {
-    /* --- */
     gap: 40px;
     align-items: center;
     justify-content: center;
@@ -312,9 +312,9 @@ p {
 }
 
 /* commodity */
-.commodity {
-    padding-top: 60px;
-}
+/* .commodity {
+    padding-top: 30px;
+} */
 
 .commodity-container {
     width: 100%;
