@@ -246,13 +246,12 @@ p {
 .jumbotron {
     height: 350px;
     background-color: aqua;
-    z-index: 3;
-    margin-top: 60px;
+    padding-top: 60px;
 }
 
 .jumbotron__img {
     width: 100%;
-    height: 350px;
+    height: 290px;
     margin-bottom: 30px;
 }
 
