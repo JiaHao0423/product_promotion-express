@@ -319,6 +319,7 @@ p {
     column-gap: 5%;
     row-gap: 50px;
     border: 0;
+    padding-top: 60px;
 }
 
 @media screen and (max-width: 768px) {
