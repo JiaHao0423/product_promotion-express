@@ -120,7 +120,7 @@ p {
     width: 100%;
     line-height: 20px;
     padding: 20px 0;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
 }
@@ -246,6 +246,7 @@ p {
 .jumbotron {
     height: 350px;
     background-color: aqua;
+    margin-top: 60px;
 }
 
 .jumbotron__img {
@@ -280,7 +281,7 @@ p {
 }
 
 .reciprocal__today {
-    font-size: 30px;
+    font-size: 36px;
 }
 
 .reciprocal__time {
@@ -347,7 +348,7 @@ p {
 } */
 .commodity_title {
     text-align: center;
-
+    font-size: 32px;
 }
 
 .commodity_title::before {
