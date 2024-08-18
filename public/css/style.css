@@ -71,7 +71,7 @@ p {
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 999;
+    /* z-index: 999; */
     border: 0;
 }
 
