@@ -257,7 +257,7 @@ p {
 /* eciprocal */
 .reciprocal {
     display: flex;
-    margin: 30px 0;
+    margin-bottom: 30px;
     padding-top: 30px;
 }
 
@@ -315,6 +315,7 @@ p {
 .commodity {
     padding-top: 60px;
 }
+
 .commodity-container {
     width: 100%;
     display: grid;
