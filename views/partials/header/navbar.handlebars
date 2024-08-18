@@ -1,6 +1,11 @@
-<div class="header-navbar">
+<nav class="header-navbar">
     <div class="header__container container">
         {{> header/logo}}
+        <button class="header-navbar__toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+            <span class="header-navbar__toggler-icon"></span>
+        </button>
+        
+
         <ul id="popup-menu" class="header__commodity-column">
             <li class="header__item">
                 <a href="/product/?page=1&limit=8" class="header__link">顯示卡</a>
@@ -48,4 +53,4 @@
             <span></span>
         </a>
     </div>
-</div>
+</nav>
