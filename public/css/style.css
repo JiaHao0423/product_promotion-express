@@ -186,7 +186,7 @@ p {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.header__link:hover {
+.header__link:active {
     color: #FF9696;
 }
 
@@ -201,7 +201,7 @@ p {
     transition: all 0.1s;
 }
 
-.header__link:active:after {
+.header__link:hover:after {
     width: 100%;
 }
 
