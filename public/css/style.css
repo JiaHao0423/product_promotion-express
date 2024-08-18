@@ -71,7 +71,7 @@ p {
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     border: 0;
 }
 
@@ -246,7 +246,7 @@ p {
 .jumbotron {
     height: 350px;
     background-color: aqua;
-    margin-top: 60px;
+    padding: 60px;
 }
 
 .jumbotron__img {
