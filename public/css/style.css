@@ -9,7 +9,7 @@ a {
 
 html,
 body {
-    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+    font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體", sans-serif;
 }
 
 ul {
@@ -312,6 +312,9 @@ p {
 }
 
 /* commodity */
+.commodity {
+    padding-top: 60px;
+}
 .commodity-container {
     width: 100%;
     display: grid;
@@ -319,7 +322,6 @@ p {
     column-gap: 5%;
     row-gap: 50px;
     border: 0;
-    padding-top: 60px;
 }
 
 @media screen and (max-width: 768px) {
@@ -351,6 +353,7 @@ p {
 .commodity_title {
     text-align: center;
     font-size: 32px;
+
 }
 
 .commodity_title::before {
@@ -1224,6 +1227,7 @@ p {
 .checkout_btn:hover {
     background-color: #45a049;
 }
+
 /* payment 確認付款頁面 */
 .payment {
     max-width: 400px;
@@ -1232,21 +1236,21 @@ p {
     background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .payment__amount {
+}
+
+.payment__amount {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  .payment__form {
+}
+
+.payment__form {
     display: flex;
     justify-content: center;
-  }
-  
-  .payment__button {
+}
+
+.payment__button {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -1255,15 +1259,15 @@ p {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-  }
-  
-  .payment__button:hover {
+}
+
+.payment__button:hover {
     background-color: #45a049;
-  }
-  
-  .payment__button:active {
+}
+
+.payment__button:active {
     background-color: #3e8e41;
-  }
+}
 
 
 
