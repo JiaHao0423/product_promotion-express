@@ -246,7 +246,7 @@ p {
 .jumbotron {
     height: 350px;
     background-color: aqua;
-    padding: 60px;
+    padding-top: 60px;
 }
 
 .jumbotron__img {
