@@ -207,14 +207,14 @@ p {
 }
 
 /* login&signup Btn */
-/* .header__login-box {
+.header__login-box {
     width: 180px;
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
 
-.header__login-box li {
+/* .header__login-box li {
     display: inline;
     margin-right: 10px;
 }
