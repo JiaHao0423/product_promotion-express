@@ -22,7 +22,7 @@
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__backInUp');
+                    entry.target.classList.add('animate__animated', 'animate__backInUp','animate__slow');
                     entry.target.style.opacity = 1; // 顯示元素
                     observer.unobserve(entry.target); // 動畫觸發後停止觀察
                 } else {
