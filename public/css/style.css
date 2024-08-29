@@ -355,9 +355,11 @@ p {
 }
 
 /* commodity */
-/* .commodity {
+.commodity {
     padding-top: 30px;
-} */
+    opacity: 0;/* 隱藏元素 */
+    transition: opacity 0.3s; /* 添加過渡效果 */
+}
 
 .commodity-container {
     width: 100%;
@@ -366,8 +368,6 @@ p {
     column-gap: 5%;
     row-gap: 50px;
     border: 0;
-    opacity: 0;/* 隱藏元素 */
-    transition: opacity 0.3s; /* 添加過渡效果 */
 }
 
 @media screen and (max-width: 768px) {

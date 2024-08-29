@@ -390,7 +390,7 @@ var countdown = setInterval(remaindingTime, 1000);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.commodity-container');
+    const elements = document.querySelectorAll('.commodity');
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
