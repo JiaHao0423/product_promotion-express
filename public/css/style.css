@@ -206,6 +206,34 @@ p {
     width: 100%;
 }
 
+/* login&signup Btn */
+/* .header__login-box {
+    width: 180px;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.header__login-box li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.header__login-box li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    background-color: #f0f0f0;
+    color: #000;
+    border-radius: 5px;
+}
+
+.header__login-box li a:hover {
+    background-color: #ddd;
+} */
+
+
+
 .menu__toggle {
     width: 48px;
     height: 48px;
@@ -1095,31 +1123,7 @@ p {
     margin-bottom: 10px;
 }
 
-/* login&signup Btn */
-.header__login-box {
-    width: 180px;
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
 
-.header__login-box li {
-    display: inline;
-    margin-right: 10px;
-}
-
-.header__login-box li a {
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid #000;
-    background-color: #f0f0f0;
-    color: #000;
-    border-radius: 5px;
-}
-
-.header__login-box li a:hover {
-    background-color: #ddd;
-}
 
 /* userPageStyle */
 .user-profile {
