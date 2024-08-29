@@ -457,11 +457,10 @@ p {
     width: 100%;
     height: 130px;
     cursor: pointer;
-    filter: grayscale(100%);/* 將圖片轉換為黑白 */
 }
 
 .card__img:hover {
-    filter: grayscale(0%); /* 懸停時恢復原色 */
+    filter: blur(3px); /* 懸停時霧化 */
 }
 
 .card-content {
