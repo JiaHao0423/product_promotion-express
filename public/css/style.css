@@ -134,25 +134,32 @@ p {
 
 .header__search-box {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
     font-size: 16px;
+}
+
+.header__search-box::placeholder {
+    color: #aaaaaa;
 }
 
 .header__search-btn {
     height: 35px;
     width: 50px;
     padding: 10px 10px;
-    background-color: #4CAF50;
+    background-color: #000000;
     color: #fff;
-    border: none;
-    border-radius: 3px;
+    border: 1px solid #333333;
+    border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .header__search-btn:hover {
-    background-color: #45a049;
+    background-color: #333333;
+    border-color: #ffffff;
 }
 
 .header__close-btn {
