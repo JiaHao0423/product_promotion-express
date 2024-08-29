@@ -349,43 +349,43 @@ var productList = [
 
 
 //倒數計時器
-var time = document.querySelectorAll('.reciprocal__time span');
+// var time = document.querySelectorAll('.reciprocal__time span');
 
-var tempDate = new Date();
-var tempYear = tempDate.getFullYear();
-var tempMonth = tempDate.getMonth() + 1;
-var tempDay = tempDate.getDate();
+// var tempDate = new Date();
+// var tempYear = tempDate.getFullYear();
+// var tempMonth = tempDate.getMonth() + 1;
+// var tempDay = tempDate.getDate();
 
-var reciprocal = new Date(tempYear, tempMonth, tempDay + 1, 0, 0, 0); //倒數時間
-var reciprocalTime = reciprocal.getTime();
+// var reciprocal = new Date(tempYear, tempMonth, tempDay + 1, 0, 0, 0); //倒數時間
+// var reciprocalTime = reciprocal.getTime();
 
-function remaindingTime() {
-    var today = new Date().getTime();
+// function remaindingTime() {
+//     var today = new Date().getTime();
 
-    var t = reciprocalTime - today;
+//     var t = reciprocalTime - today;
 
-    var oneDay = 24 * 60 * 60 * 1000;
-    var oneHour = 60 * 60 * 1000;
-    var oneMinute = 60 * 1000;
+//     var oneDay = 24 * 60 * 60 * 1000;
+//     var oneHour = 60 * 60 * 1000;
+//     var oneMinute = 60 * 1000;
 
-    var hours = Math.floor((t % oneDay) / oneHour); //小時
-    var minutes = Math.floor((t % oneHour) / oneMinute); //分鐘
-    var seconds = Math.floor((t % oneMinute) / 1000); //秒鐘
+//     var hours = Math.floor((t % oneDay) / oneHour); //小時
+//     var minutes = Math.floor((t % oneHour) / oneMinute); //分鐘
+//     var seconds = Math.floor((t % oneMinute) / 1000); //秒鐘
 
-    var values = [hours, minutes, seconds];
-    function format(values) {
-        if (values < 10) {
-            return (values = `0${values}`)
-        }
-        return values
-    };
+//     var values = [hours, minutes, seconds];
+//     function format(values) {
+//         if (values < 10) {
+//             return (values = `0${values}`)
+//         }
+//         return values
+//     };
 
-    time.forEach(function (time, index) {
-        time.innerHTML = format(values[index])
-    });
-}
+//     time.forEach(function (time, index) {
+//         time.innerHTML = format(values[index])
+//     });
+// }
 
-var countdown = setInterval(remaindingTime, 1000);
+// var countdown = setInterval(remaindingTime, 1000);
 
 
 
