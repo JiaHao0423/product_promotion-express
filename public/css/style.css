@@ -364,7 +364,7 @@ p {
 }
 
 .animate__backInUp{
-    animation-duration: 2s;
+    animation-duration: 10s;
     animation-delay: 1s;
 }
 
