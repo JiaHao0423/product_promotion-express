@@ -363,10 +363,6 @@ p {
     /* 添加過渡效果 */
 }
 
-.animate__backInUp{
-    --animate-duration: 2s;
-    --animate-delay: 2s;
-}
 
 .commodity-container {
     width: 100%;
