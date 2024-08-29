@@ -366,12 +366,8 @@ p {
     column-gap: 5%;
     row-gap: 50px;
     border: 0;
-    animation-name: backInUp;/* 指定動畫效果 */
-    animation-duration: 1.5s; /* 調整動畫時間 */
-    animation-timing-function: ease-in-out; /* 動畫的速度曲線 */
-    animation-delay: 0.5s; /* 延遲動畫 */
-    animation-iteration-count: infinite; /* 無限次重複 */
-    animation-fill-mode: both; /* 確保動畫保持狀態 */
+    opacity: 0;/* 隱藏元素 */
+    transition: opacity 0.3s; /* 添加過渡效果 */
 }
 
 @media screen and (max-width: 768px) {
@@ -466,7 +462,8 @@ p {
 }
 
 .card__img:hover {
-    filter: blur(3px); /* 懸停時霧化 */
+    filter: blur(3px);
+    /* 懸停時霧化 */
 }
 
 .card-content {

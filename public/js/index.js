@@ -384,3 +384,24 @@ function remaindingTime() {
 
 var countdown = setInterval(remaindingTime, 1000);
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll('.commodity-container');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate__animated', 'animate__backInUp');
+                entry.target.style.opacity = 1; // 顯示元素
+                observer.unobserve(entry.target); // 動畫觸發後停止觀察
+            }
+        });
+    }, {
+        threshold: 0.1 // 當元素的 10% 進入視窗時觸發
+    });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
