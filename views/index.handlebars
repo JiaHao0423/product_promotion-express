@@ -316,7 +316,7 @@
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__backInUp','animate__fast','animate__visible'); // 顯示元素
+                    entry.target.classList.add('animate__animated', 'animate__backInUp','animate__faster','animate__visible'); // 顯示元素
                     observer.unobserve(entry.target); // 動畫觸發後停止觀察
                 } else {
                     entry.target.classList.remove('animate__visible');
