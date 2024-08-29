@@ -391,7 +391,7 @@ var countdown = setInterval(remaindingTime, 1000);
 
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll('.commodity');
-
+    console.log('Elements found:', elements);
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
