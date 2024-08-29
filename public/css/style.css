@@ -138,15 +138,16 @@ p {
     border: 1px solid white;
     border-radius: 10px;
     font-size: 16px;
+    color: white;
 }
 
 .header__search-box::placeholder {
-    color: #aaaaaa;
+    color: #999;
 }
 
 .header__search-btn {
     height: 35px;
-    width: 50px;
+    width: 55px;
     padding: 10px 10px;
     background-color: #000000;
     color: #fff;
