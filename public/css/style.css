@@ -357,10 +357,6 @@ p {
 /* commodity */
 .commodity {
     padding-top: 30px;
-    opacity: 0;
-    /* 隱藏元素 */
-    transition: opacity 0.3s;
-    /* 添加過渡效果 */
 }
 
 
