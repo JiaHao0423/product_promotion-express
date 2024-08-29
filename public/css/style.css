@@ -364,8 +364,8 @@ p {
 }
 
 .animate__backInUp{
-    animation-duration: 10s;
-    animation-delay: 1s;
+    --animate-duration: 2s;
+    --animate-delay: 2s;
 }
 
 .commodity-container {
@@ -847,7 +847,7 @@ p {
     font-weight: bold;
     border: 0;
     border-radius: 10px;
-    background-color: #FFA600;
+    background-color: #007bff;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -875,11 +875,11 @@ p {
 }
 
 .material__outbtn:hover {
-    background-color: #E09200
+    background-color: #0056b3
 }
 
 .material__outbtn:active {
-    background-color: #C78100;
+    background-color: #004085;
 }
 
 /* footer */
