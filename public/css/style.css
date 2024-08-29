@@ -358,6 +358,10 @@ p {
 .commodity {
     padding-top: 30px;
 }
+.animate__backInUp{
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
 
 
 .commodity-container {
