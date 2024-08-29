@@ -311,5 +311,24 @@
         }
         var countdown = setInterval(remaindingTime, 1000);
 
+
+        const elements = document.querySelectorAll('.commodity');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__backInUp','animate__slow','animate__visible'); // 顯示元素
+                    observer.unobserve(entry.target); // 動畫觸發後停止觀察
+                } else {
+                    entry.target.classList.remove('animate__visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // 當元素的 10% 進入視窗時觸發
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+
     })
 </script>
