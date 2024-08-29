@@ -284,6 +284,12 @@ p {
     font-size: 36px;
 }
 
+@media screen and (max-width: 768px) {
+    .reciprocal__today {
+        display: none;
+    }
+}
+
 .reciprocal__time {
     display: flex;
     flex-direction: row;
