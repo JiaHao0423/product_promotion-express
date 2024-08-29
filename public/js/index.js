@@ -1,3 +1,6 @@
+import 'animate.css'
+
+
 //購物車表單&購物清單
 
 var shoppingList = document.querySelector('.shopping-list');
