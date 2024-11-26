@@ -1,21 +1,4 @@
 # product_promotion-express
-安裝 express sever
-指令 npm install express
-
-運行express sever
-指令 npm run dev
-
-建立Table
-指令 npm run migrate
-
-刪除Table
-指令 npm run down
-
-建立資料
-指令 npm run seed
-
-
-首頁網址: 1.localhost:8081/index   2.http://127.0.0.1:8081/index
 
 1.pagination實作於header替換之前移動到各個區塊超連結，點按相對應按鈕會連結到相對應頁面
 
@@ -31,7 +14,9 @@
 
 
 專案執行
+
 會員功能
+
 1.安裝express sever。
 
 2.資料庫建立Table及資料。
@@ -69,8 +54,9 @@
 5.登入不同使用者，會進入各自的購物車。
 
 
-後台測試
-後台網址:https://vendor-stage.ecpay.com.tw/User/LogOn_Step1#
+金流串接後台測試
+
+金流後台網址:https://vendor-stage.ecpay.com.tw/User/LogOn_Step1#
 
 帳號:stagetest1234
 
