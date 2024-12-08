@@ -235,7 +235,7 @@ p {
   width: 48px;
   height: 48px;
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin: 8px;
   display: none;
 }
