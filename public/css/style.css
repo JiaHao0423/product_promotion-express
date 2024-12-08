@@ -1182,7 +1182,7 @@ p {
 #reset_form button,
 #signup_form button,
 #login_form button {
-  background-color: #4caf50;
+  background-color: #557785;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -1193,7 +1193,13 @@ p {
 #reset_form button:hover,
 #signup_form button:hover,
 #login_form button:hover {
-  background-color: #45a049;
+  background-color: #496371;
+}
+
+#reset_form button:active,
+#signup_form button:active,
+#login_form button:active {
+  background-color: #40535e;
 }
 
 .oldPasshash-error,
@@ -1244,7 +1250,7 @@ p {
 }
 
 .user-profile__btn {
-  background-color: #007bff;
+  background-color: #557785;
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -1255,7 +1261,11 @@ p {
 }
 
 .user-profile__btn:hover {
-  background-color: #0056b3;
+  background-color: #496371;
+}
+
+.user-profile__btn:active {
+  background-color: #40535e;
 }
 
 /* checkout-confirmation.hbs */
