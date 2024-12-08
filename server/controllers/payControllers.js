@@ -1,11 +1,11 @@
-var { raw } = require('mysql');
-var bodyParser = require('body-parser');
-var { Sequelize, where } = require('sequelize');
-var session = require('express-session');
+let { raw } = require('mysql');
+let bodyParser = require('body-parser');
+let { Sequelize, where } = require('sequelize');
+let session = require('express-session');
 
 
-var { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env
-var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+let { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env
+let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     dialect: 'mysql',
     host: DB_HOST,
     port: DB_PORT,
@@ -24,18 +24,18 @@ var sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 
 
 
-// var { pay } = require('./payControllers');
-// var { product } = require('./productControllers');
-var ecpay_payment = require('ecpay_aio_nodejs');
-var OrderModel = require('../../models/order');
-var Order = OrderModel(sequelize, Sequelize)
-var OrderProductModel = require('../../models/order_product');
-var OrderProduct = OrderProductModel(sequelize, Sequelize)
-var ProductModel = require('../../models/product');
-var Product = ProductModel(sequelize, Sequelize)
+// let { pay } = require('./payControllers');
+// let { product } = require('./productControllers');
+let ecpay_payment = require('ecpay_aio_nodejs');
+let OrderModel = require('../../models/order');
+let Order = OrderModel(sequelize, Sequelize)
+let OrderProductModel = require('../../models/order_product');
+let OrderProduct = OrderProductModel(sequelize, Sequelize)
+let ProductModel = require('../../models/product');
+let Product = ProductModel(sequelize, Sequelize)
 
-var { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
-var options = {
+let { MERCHANTID, HASHKEY, HASHIV, HOST } = process.env
+let options = {
     OperationMode: 'Test',
     MercProfile: {
         MerchantID: MERCHANTID,
@@ -49,7 +49,7 @@ var options = {
 }
 
 exports.checkout = (req, res) => {
-    var cart = req.session.cart
+    let cart = req.session.cart
     if (cart) {
         res.render('checkout');
     } else {
@@ -68,21 +68,21 @@ exports.pay = (req, res) => {
 
 
 exports.data = (req, res) => {
-    var name = req.body.name
-    var address = req.body.address
-    var number = req.body.number
-    var pay = req.body.pay
-    var bill = req.body.bill
-    var bill_number = req.body.bill_number
-    var now = new Date();
-    var date = now.getFullYear() + '/' +
+    let name = req.body.name
+    let address = req.body.address
+    let number = req.body.number
+    let pay = req.body.pay
+    let bill = req.body.bill
+    let bill_number = req.body.bill_number
+    let now = new Date();
+    let date = now.getFullYear() + '/' +
         ('0' + (now.getMonth() + 1)).slice(-2) + '/' +
         ('0' + now.getDate()).slice(-2) + ' ' +
         ('0' + now.getHours()).slice(-2) + ':' +
         ('0' + now.getMinutes()).slice(-2) + ':' +
         ('0' + now.getSeconds()).slice(-2);
 
-    var data = {
+    let data = {
         name: name,
         address: address,
         number: number,
@@ -97,8 +97,8 @@ exports.data = (req, res) => {
 
 
 exports.create = async (req, res) => {
-    var now = new Date();
-    var orderData = {
+    let now = new Date();
+    let orderData = {
         order_id: "TE" + now.toISOString().slice(0, 10).replace(/-/g, ''),
         user_id: req.session.user.id,
         order_amount: 0,
@@ -109,18 +109,18 @@ exports.create = async (req, res) => {
         created_at: req.session.data.created_at,
         status: "未結帳"
     }
-    var order = await Order.findOne({ where: { order_id: orderData.order_id } })
+    let order = await Order.findOne({ where: { order_id: orderData.order_id } })
     if (!order) {
         order = await Order.create(orderData)
     }
 
-    var order_amount = 0
-    var cart = req.session.cart
+    let order_amount = 0
+    let cart = req.session.cart
 
-    for (var cartItem of cart) {
-        var orderProduct = await OrderProduct.findOne({ where: { order_id: orderData.order_id, product_id: cartItem.id } })
+    for (let cartItem of cart) {
+        let orderProduct = await OrderProduct.findOne({ where: { order_id: orderData.order_id, product_id: cartItem.id } })
         if (!orderProduct) {
-            var data = {
+            let data = {
                 order_id: orderData.order_id,
                 product_id: cartItem.id,
                 price: cartItem.price,
@@ -133,33 +133,33 @@ exports.create = async (req, res) => {
 
     order.order_amount = order_amount
     await order.save()
-    var orderAmounr = order.order_amount
+    let orderAmounr = order.order_amount
     res.render('payment', { order_amount: orderAmounr });
 };
 
 
 exports.processPayment = async (req, res) => {
-    var crypto = require('crypto');
-    var userid = req.session.user.id
-    var order = await Order.findOne({ where: { user_id: userid } })
-    var orderAmounr = order.order_amount
-    var orderProduct = await OrderProduct.findAll({ where: { order_id: order.order_id } })
-    var product_items = []
+    let crypto = require('crypto');
+    let userid = req.session.user.id
+    let order = await Order.findOne({ where: { user_id: userid } })
+    let orderAmounr = order.order_amount
+    let orderProduct = await OrderProduct.findAll({ where: { order_id: order.order_id } })
+    let product_items = []
 
     await Promise.all(orderProduct.map(async data => {
-        var productData = await Product.findOne({
+        let productData = await Product.findOne({
             where: { id: data.product_id },
             raw: true
         })
         product_items.push(productData.name + "*" + data.quantity)
     }))
 
-    var product_item = product_items.join("#")
+    let product_item = product_items.join("#")
 
 
 
 
-    var uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
+    let uniqueid = order.order_id + crypto.randomBytes(4).toString('hex');
 
     session.order_details = {
         orderNO: uniqueid,
@@ -167,7 +167,7 @@ exports.processPayment = async (req, res) => {
         orderDate: req.session.data.created_at
     }
 
-    var base_param = {
+    let base_param = {
         MerchantTradeNo: uniqueid, // 獨一無二的商家訂單編號
         MerchantTradeDate: req.session.data.created_at, // 交易時間
         TotalAmount: orderAmounr.toString(), // 交易金額
@@ -176,20 +176,20 @@ exports.processPayment = async (req, res) => {
         ReturnURL: `${HOST}/pay-return`,
         ClientBackURL: `${HOST}/order-completion`
     };
-    var create = new ecpay_payment(options);
-    var html = create.payment_client.aio_check_out_credit_onetime(base_param);
+    let create = new ecpay_payment(options);
+    let html = create.payment_client.aio_check_out_credit_onetime(base_param);
     console.log(html);
 
     res.render('ECpay', { html: html })
 
 };
 exports.return = (req, res) => {
-    const { CheckMacValue } = req.body;
-    const data = { ...req.body };
+    let { CheckMacValue } = req.body;
+    let data = { ...req.body };
     delete data.CheckMacValue;
 
-    const create = new ecpay_payment(options);
-    const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
+    let create = new ecpay_payment(options);
+    let checkValue = create.payment_client.helper.gen_chk_mac_value(data);
 
     // 交易成功後，需要回傳 1|OK 給綠界
     res.send('1|OK');

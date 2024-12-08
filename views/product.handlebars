@@ -1,6 +1,6 @@
 {{#with data}}
 
-<form action="/addToCart" method="POST" class="commodity-card">
+<form action="/addToCart" method="POST" class="product-card">
     <div class="product-container">
         <div class="product__imageContainer">
             <img src='/images/{{class}}.jpg' alt="" class="product__image">
@@ -16,8 +16,8 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
-                    <span class="product-addToCart__btn">
+                    </select>
+                    <span class="product-addToCart__dropdown">
                         <input type="hidden" name="id" value="{{id}}">
                         <input type="hidden" name="classname" value="{{class}}">
                         <input type="hidden" name="name" value="{{name}}">

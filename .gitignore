@@ -1,1 +1,5 @@
 node_modules/
+local.txt
+production.txt
+config/localhost.txt
+config/config.txt

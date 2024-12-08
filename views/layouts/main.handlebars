@@ -14,9 +14,12 @@
     <header class="header" id="header">
         {{>header/navbar}}
     </header>
-    {{!-- {{>header/jumbotron}} --}}
+    <div class="content">
     {{{body}}}
+    </div>
+    <footer>
     {{> footer/footer}}
+    </footer>
     <script>
         const elements = document.querySelectorAll('.commodity');
         const observer = new IntersectionObserver((entries, observer) => {

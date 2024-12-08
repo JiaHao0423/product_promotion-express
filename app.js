@@ -6,6 +6,7 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require('body-parser');
 var { requireAuth, checkUser } = require('./middleware/authMiddleware')
 var session = require('express-session');
+require('dotenv').config({path:'./process.env'});
 
 
 

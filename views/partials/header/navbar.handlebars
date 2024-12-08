@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="../../../public/css/navbar.css">
+</head>
 <nav class="header-navbar">
     <div class="header__container container">
         {{> header/logo}}
@@ -32,13 +35,6 @@
                 <button type="submit" class="header__search-btn">搜尋</button>
             </form>
             <ul class="header__login-box">
-                {{!-- {{#if user}}
-                <li><a href="/userPage" class="header__userPage-btn">會員中心</a></li>
-                <li><a href="/logout" class="header__logout-btn">登出</a></li>
-                {{else}}
-                <li><a href="/login" class="header__login-btn">登入</a></li>
-                <li><a href="/signup" class="header__signup-btn">註冊</a></li>
-                {{/if}} --}}
                 {{#if user}}
                 <li><a href="/userPage" class="header__link">會員中心</a></li>
                 <li><a href="/logout" class="header__link">登出</a></li>

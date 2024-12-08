@@ -5,7 +5,7 @@
     "database": "zeabur",
     "host": "hkg1.clusters.zeabur.com",
     "dialect": "mysql",
-    "port":"30395"
+    "port": "30395"
   },
   "test": {
     "username": "root",
@@ -13,7 +13,7 @@
     "database": "zeabur",
     "host": "hkg1.clusters.zeabur.com",
     "dialect": "mysql",
-    "port":"30395"
+    "port": "30395"
   },
   "production": {
     "username": "root",
@@ -21,6 +21,6 @@
     "database": "zeabur",
     "host": "hkg1.clusters.zeabur.com",
     "dialect": "mysql",
-    "port":"30395"
+    "port": "30395"
   }
 }
